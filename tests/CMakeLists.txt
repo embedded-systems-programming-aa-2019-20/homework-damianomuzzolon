@@ -1,0 +1,1 @@
+add_executable(reading_from_file reading_from_file.cpp)
