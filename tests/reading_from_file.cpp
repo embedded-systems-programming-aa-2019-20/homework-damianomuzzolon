@@ -31,11 +31,10 @@ int main()
     istringstream iss(line);
     int int1, int2, int3, int4;
     string string1;
-    string string2;
     
-    if (!(iss >> int1 >> int2 >> string1 >> string2 >> int3 >> int4)) { break; } // error
+    if (!(iss >> string1 >> int1 >> int2 >> int3 >> int4)) { break; } // error
     
-    cout << int1 << " " << int2 << " " << string1 << " " << string2 << " "
+    cout << string1 << " " << int1 << " " << int2 << " "
          << int3 << " " << int4 << endl;
     }
 

@@ -20,16 +20,16 @@ class Park1{
 		Date get_prossima_entrata() const {return prossima_entrata;}
 		Date get_prossima_uscita() const {return prossima_uscita;}
 		list<Auto> get_auto_presenti() const {return auto_presenti;}
-		bool get_is_uscita_aggiornata() const {return is_uscita_aggiornata;}
-		bool get_is_entrata_aggiornata() const {return is_entrata_aggiornata;}
+		//bool get_is_uscita_aggiornata() const {return is_uscita_aggiornata;}
+		//bool get_is_entrata_aggiornata() const {return is_entrata_aggiornata;}
 	private:
 		list<Auto> auto_presenti;
 		int capienza;
 		Date prossima_entrata;
 		Date prossima_uscita;
 
-		bool is_entrata_aggiornata;
-		bool is_uscita_aggiornata;
+		//bool is_entrata_aggiornata;
+		//bool is_uscita_aggiornata;
 
 		mutex mutex_;
 };
