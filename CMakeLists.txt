@@ -8,5 +8,9 @@ project (Homework_muzzolon_damiano
         DESCRIPTION "Homework Winter 2019"
         LANGUAGES CXX)
 
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+set(THREADS_PREFER_FLAG TRUE)
+find_package(Threads REQUIRED)
+
 # The test code is here
 add_subdirectory(Src)
