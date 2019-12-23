@@ -1,3 +1,5 @@
+find_package(Threads)
 add_executable(main main.cpp Park1.cpp Auto.cpp Date.cpp)
-target_include_directories(main Public ../Include)
-add_compile_options(-Wall -Wextra -pedantic -Werror)
+target_include_directories(main PUBLIC ../Include)
+target_link_libraries(main ${CMAKE_THREAD_LIBS_INIT})
+target_compile_options(main PRIVATE -Wall)

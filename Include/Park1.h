@@ -25,17 +25,31 @@ class Park1{
 		//bool get_is_uscita_aggiornata() const {return is_uscita_aggiornata;}
 		//bool get_is_entrata_aggiornata() const {return is_entrata_aggiornata;}
 		int get_numero_auto() const {return numero_auto;}
+		//bool get_finite_auto_che_entrano() {return finite_auto_che_entrano;}
+		//bool get_finite_auto_che_escono() {return finite_auto_che_escono;}
+
 		//funzioni
-		void aggiorna_prossima_entrata(Date d);
+		//void aggiorna_prossima_entrata(Date d);
 		void fai_entrare_auto(Auto car);
-		void aggiorna_prossima_uscita(Date d);
+		//void aggiorna_prossima_uscita(Date d);
 		void fai_uscire_auto(Auto car);
+		void print_lista_auto();
+		void set_uscite_finite();
+		void set_entrate_finite();
+		//void signal_su_uscite_rimaste();//eseguita in concorrenza
+		//void signal_su_entrate_rimaste();//eseguita in concorrenza
+		//void set_finite_auto_che_escono(){ finite_auto_che_escono = true;}
+		//void set_finite_auto_che_entrano(){ finite_auto_che_entrano = true;}
 	private:
 		list<Auto> auto_presenti;
 		int capienza;
 		Date prossima_entrata;
 		Date prossima_uscita;
 		int numero_auto;
+		bool uscite_sono_finite;
+		bool entrate_sono_finite;
+		//bool finite_auto_che_escono;
+		//bool finite_auto_che_entrano;
 		//bool is_entrata_aggiornata;
 		//bool is_uscita_aggiornata;
 		list<Auto>::iterator pos;

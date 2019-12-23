@@ -9,10 +9,10 @@ using std::cerr;
 // helper functions
 
 // check for valid date and initialise
-Date::Date(int yy, Month mm, int dd, int hh, int minmin)
+Date::Date(int yy, /*Month mm*/int mm, int dd, int hh, int minmin)
 	:y{yy}, m{mm}, d{dd}, h{hh}, min{minmin}
 {
-	if (m<Date::jan || m>Date::dec || d<1 || d>31)  {
+	if (/*m<Date::jan || m>Date::dec*/m<1 || m>12 || d<1 || d>31)  {
 		cerr << "invalid date\n";
 		exit(1);
 	}
@@ -25,7 +25,7 @@ Date::Date(int yy, Month mm, int dd, int hh, int minmin)
 
 const Date& default_date()
 {
-	static Date dd{2001,Date::jan,1,0,0};   // start of 21st century
+	static Date dd{2001,/*Date::jan*/1,1,0,0};   // start of 21st century
 	return dd;
 }
 
@@ -45,7 +45,7 @@ int Date::year() const
 }
 
 // return month
-Date::Month Date::month() const
+/*Date::Month*/int Date::month() const
 {
 	return m;
 }
@@ -78,6 +78,14 @@ bool Date::is_dopo(Date date){ //la data è dopo d?
 	else if(y == date.year() && m == date.month() && d == date.day() && h == date.hour() && min > date.minutes())
 		return true;
 	return false; //ha cercato se una data è dopo d, se arriva alla fine degli if è perchè non è dopo d
+}
+
+void Date::set_data(Date data_da_settare){
+	y = data_da_settare.year();
+	m = data_da_settare.month();
+	d = data_da_settare.day();
+	h = data_da_settare.hour();
+	min = data_da_settare.minutes();
 }
 
 // increase the date by n years
