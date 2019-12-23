@@ -1,0 +1,5 @@
+/home/damiano_muzzolon/programmazione_sistemi_embedded/Natale_New/homework-damianomuzzolon/Build/CMakeFiles/rebuild_cache.dir
+/home/damiano_muzzolon/programmazione_sistemi_embedded/Natale_New/homework-damianomuzzolon/Build/CMakeFiles/edit_cache.dir
+/home/damiano_muzzolon/programmazione_sistemi_embedded/Natale_New/homework-damianomuzzolon/Build/Src/CMakeFiles/rebuild_cache.dir
+/home/damiano_muzzolon/programmazione_sistemi_embedded/Natale_New/homework-damianomuzzolon/Build/Src/CMakeFiles/main.dir
+/home/damiano_muzzolon/programmazione_sistemi_embedded/Natale_New/homework-damianomuzzolon/Build/Src/CMakeFiles/edit_cache.dir
