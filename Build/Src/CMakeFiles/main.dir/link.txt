@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/Park1.cpp.o CMakeFiles/main.dir/Auto.cpp.o CMakeFiles/main.dir/Date.cpp.o  -o main -lpthread 

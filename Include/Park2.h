@@ -1,7 +1,7 @@
-//Park1.h
+//Park2.h
 
-#ifndef PARK1_H
-#define PARK1_H
+#ifndef PARK2_H
+#define PARK2_H
 
 #include <mutex>
 using std::mutex;
@@ -13,11 +13,11 @@ using std::condition_variable;
 #include "Auto.h"
 #include "Date.h"
 
-class Park1{
+class Park2{
 	public:
 		//costruttori
-		Park1();
-		Park1(int cap);
+		Park2();
+		Park2(int cap);
 		//getter
 		Date get_prossima_entrata() const {return prossima_entrata;}
 		Date get_prossima_uscita() const {return prossima_uscita;}
@@ -30,7 +30,7 @@ class Park1{
 
 		//funzioni
 		//void aggiorna_prossima_entrata(Date d);
-		void fai_entrare_auto(Auto& car);
+		void fai_entrare_auto(Auto &car);
 		//void aggiorna_prossima_uscita(Date d);
 		void fai_uscire_auto(Auto car);
 		void print_lista_auto();
