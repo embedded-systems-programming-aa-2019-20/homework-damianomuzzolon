@@ -27,6 +27,8 @@ public:
 	void add_year(int n);
 	void add_month(int n);
 	void add_day(int n);
+
+	bool is_dopo(Date date);
 private:
 	int y;      // year
 	Month m;

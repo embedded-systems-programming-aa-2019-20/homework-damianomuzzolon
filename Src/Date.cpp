@@ -66,6 +66,20 @@ int Date::minutes() const
 	return min;
 }
 
+bool Date::is_dopo(Date date){ //la data è dopo d?
+	if(y > date.year())
+		return true;
+	else if(y == date.year() && m > date.month())
+		return true;
+	else if(y == date.year() && m == date.month() && d > date.day())
+		return true;
+	else if(y == date.year() && m == date.month() && d == date.day() && h > date.hour())
+		return true;
+	else if(y == date.year() && m == date.month() && d == date.day() && h == date.hour() && min > date.minutes())
+		return true;
+	return false; //ha cercato se una data è dopo d, se arriva alla fine degli if è perchè non è dopo d
+}
+
 // increase the date by n years
 void Date::add_year(int n)
 {
