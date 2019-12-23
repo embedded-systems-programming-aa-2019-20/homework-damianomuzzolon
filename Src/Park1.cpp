@@ -15,7 +15,7 @@ using std::endl;
 #include <algorithm>
 
 //costruttori
-Park1::Park1(int cap):capienza{cap},prossima_entrata{1900, /*Date::Month::jan*/1,1 ,0 ,0},prossima_uscita{1900, /*Date::Month::jan*/1,1 ,0 ,0}, auto_presenti(cap), numero_auto{0}, pos{auto_presenti.begin()}/*, finite_auto_che_escono{false}, finite_auto_che_entrano{false}*/,uscite_sono_finite{false}, entrate_sono_finite{false}{}
+Park1::Park1(int cap):capienza{cap},prossima_entrata{1900, /*Date::Month::jan*/1,1 ,0 ,0},prossima_uscita{1900, /*Date::Month::jan*/1,1 ,0 ,0}, auto_presenti(/*cap*/1), numero_auto{0}, pos{auto_presenti.begin()}/*, finite_auto_che_escono{false}, finite_auto_che_entrano{false}*/,uscite_sono_finite{false}, entrate_sono_finite{false}{}
 Park1::Park1():capienza{0},prossima_entrata{1900, /*Date::Month::jan*/1,1 ,0 ,0},prossima_uscita{1900, /*Date::Month::jan*/1,1 ,0 ,0}, auto_presenti(0), numero_auto{0},pos{auto_presenti.begin()}/*, finite_auto_che_escono{false}/*, finite_auto_che_entrano{false}*/,entrate_sono_finite{false},uscite_sono_finite{false}{}
 //funzioni
 /*void Park1::aggiorna_prossima_entrata(Date d){
@@ -31,12 +31,12 @@ void Park1::fai_entrare_auto(Auto car){
         mio_turno_per_entrare.wait(mlock);
     if(numero_auto == capienza){
         cout << car.get_data_ingresso() << ' ' << car.get_targa() << ' ' << "Non entrata. Park1 pieno" << endl;  
-    }
-    else {
-        *pos = car; //metto l'auto nella lista. pos è nel monitor perchè entrambe le thread lo modificano
+    } else {
+        //*pos = car; //metto l'auto nella lista. pos è nel monitor perchè entrambe le thread lo modificano
+        auto_presenti.push_back(car);
         numero_auto++; //c'è un'auto in più
-        cout << (*pos).get_data_ingresso() << ' ' << (*pos).get_targa() << ' ' << "IN " << "PARK1" << endl;
-        pos++;
+        cout << car.get_data_ingresso() << ' ' << car.get_targa() << ' ' << "IN " << "PARK1" << endl; //prima c'era *pos
+        //pos++;
     }
 }
 
@@ -61,7 +61,9 @@ void Park1::fai_uscire_auto(Auto car){
 
     auto_presenti.erase(auto_da_eliminare); //elimino l'auto
     numero_auto--; //c'è un'auto in meno
-    //pos--; //così faccio entrare le auto nella posizione corretta
+    //pos--; //così faccio entrare le auto nella posizione corretta. CAZZATA
+    /*if(pos == auto_presenti.end())
+        pos--;*/
     cout << car.get_data_ingresso() << ' ' << car.get_targa() << ' ' << "OUT " << "PARK1" << endl;
 } //il cout è dentro alla sezione critica perchè voglio che stampi entrate e uscite in ordine 
 
