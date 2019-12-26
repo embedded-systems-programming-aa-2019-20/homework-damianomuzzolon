@@ -9,10 +9,10 @@ using std::cerr;
 // helper functions
 
 // check for valid date and initialise
-Date::Date(int yy, /*Month mm*/int mm, int dd, int hh, int minmin)
+Date::Date(int yy, int mm, int dd, int hh, int minmin)
 	:y{yy}, m{mm}, d{dd}, h{hh}, min{minmin}
 {
-	if (/*m<Date::jan || m>Date::dec*/m<1 || m>12 || d<1 || d>31)  {
+	if (m<1 || m>12 || d<1 || d>31)  {
 		cerr << "invalid date\n";
 		exit(1);
 	}
@@ -25,7 +25,7 @@ Date::Date(int yy, /*Month mm*/int mm, int dd, int hh, int minmin)
 
 const Date& default_date()
 {
-	static Date dd{2001,/*Date::jan*/1,1,0,0};   // start of 21st century
+	static Date dd{2001,1,1,0,0};   // start of 21st century
 	return dd;
 }
 
@@ -45,7 +45,7 @@ int Date::year() const
 }
 
 // return month
-/*Date::Month*/int Date::month() const
+int Date::month() const
 {
 	return m;
 }
@@ -66,7 +66,7 @@ int Date::minutes() const
 	return min;
 }
 
-bool Date::is_dopo(Date date){ //la data è dopo d?
+bool Date::is_dopo(Date date){ //la data è dopo date?
 	if(y > date.year())
 		return true;
 	else if(y == date.year() && m > date.month())
@@ -77,7 +77,7 @@ bool Date::is_dopo(Date date){ //la data è dopo d?
 		return true;
 	else if(y == date.year() && m == date.month() && d == date.day() && h == date.hour() && min > date.minutes())
 		return true;
-	return false; //ha cercato se una data è dopo d, se arriva alla fine degli if è perchè non è dopo d
+	return false; //ha cercato se una data è dopo date, se arriva alla fine degli if è perchè non è dopo date
 }
 
 void Date::set_data(Date data_da_settare){
@@ -86,29 +86,6 @@ void Date::set_data(Date data_da_settare){
 	d = data_da_settare.day();
 	h = data_da_settare.hour();
 	min = data_da_settare.minutes();
-}
-
-// increase the date by n years
-void Date::add_year(int n)
-{
-	y += n;
-}
-
-// increase the date by n months
-void Date::add_month(int n)
-{
-	// too complicated
-}
-
-// increase the Date by n days
-void Date::add_day(int n)
-{
-	d += n;
-	if (d > 31) {
-		cerr << "add_day() results in invalid date\n";
-		exit(1);
-	}
-
 }
 
 // operators
